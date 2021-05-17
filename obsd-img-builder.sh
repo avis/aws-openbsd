@@ -183,6 +183,8 @@ create_img()
 
 	pr_title "creating modified bsd.rd for autoinstall"
 	ftp -MV -o ${_bsdrd} ${MIRROR}/${RELEASE}/${ARCH}/bsd.rd
+	mv ${_bsdrd} ${_bsdrd}.gz
+	gunzip -d ${_bsdrd}.gz
 	rdsetroot -x ${_bsdrd} ${_rdextract}
 	_vndev=$(vnconfig ${_rdextract})
 	install -d ${_rdmnt}
