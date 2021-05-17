@@ -4,7 +4,10 @@ AWS playground for OpenBSD kids.
 Running whatever is in this repo will propably end up destroying a kitten factory.
 
 ## Prerequisites for obsd-img-builder.sh (OpenBSD AMI builder)
-
+* evaluate as true ->dmesg | egrep '(VMX/EPT|SVM/RVI)' (if obsd is running under a hypervisor)
+* rcctl enable vmd
+* rcctl start vmd
+* fw_update
 * shell access to OpenBSD current >6.5 with vmm(4) support and Internet access
 * 3GB of free space in ${TMPDIR}
 * *awscli* and *vmdktool* packages installed
